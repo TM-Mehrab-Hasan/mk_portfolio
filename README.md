@@ -24,7 +24,7 @@ mk_portfolio/
 ├── js/
 │   └── main.js         ← Animations & interactions
 ├── Photo.png           ← Profile photo (already present)
-└── Europass_single_column_cv.pdf  ← Downloadable CV
+└── Mursalin Kabir CV.pdf  ← Downloadable CV
 ```
 
 ---
@@ -32,6 +32,7 @@ mk_portfolio/
 ## 🚀 Deploying to Netlify via GitHub
 
 ### Step 1 — Push to GitHub
+
 ```bash
 git init
 git add .
@@ -42,6 +43,7 @@ git push -u origin main
 ```
 
 ### Step 2 — Connect to Netlify
+
 1. Go to [https://app.netlify.com](https://app.netlify.com)
 2. Click **"Add new site"** → **"Import an existing project"**
 3. Select **GitHub** and authorize
@@ -58,7 +60,7 @@ Netlify will auto-deploy on every `git push`. ✅
 ## 🎨 Tech Stack
 
 | Tool | Purpose |
-|------|---------|
+| ------ | --------- |
 | HTML5 | Structure |
 | CSS3 + Bootstrap 5.3 | Styling & Grid |
 | Vanilla JS | Animations & Interactions |
@@ -72,5 +74,5 @@ Netlify will auto-deploy on every `git push`. ✅
 ## 📧 Contact
 
 Built for **MD. Mursalin Kabir**  
-Email: mursalinkabir50221@gmail.com  
+Email: <mursalinkabir50221@gmail.com>  
 ResearchGate: [View Profile](https://www.researchgate.net/profile/Kabir-3)
