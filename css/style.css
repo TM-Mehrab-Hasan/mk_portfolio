@@ -28,6 +28,7 @@
 
 html {
     scroll-behavior: smooth;
+    -webkit-scroll-behavior: smooth;
     scroll-padding-top: 72px;
 }
 
@@ -258,9 +259,9 @@ img { max-width: 100%; display: block; }
 .hero-desc {
     font-size: 1rem;
     color: rgba(255,255,255,0.68);
-    max-width: 580px;
     line-height: 1.85;
     margin-bottom: 36px;
+    text-align: justify;
 }
 
 /* CTA buttons */
@@ -383,6 +384,128 @@ img { max-width: 100%; display: block; }
 @keyframes bounce {
     0%, 100% { transform: translateX(-50%) translateY(0); }
     50%       { transform: translateX(-50%) translateY(-8px); }
+}
+
+/* ======================================================
+   HERO PROFILE IMAGE (right column)
+====================================================== */
+.hero-profile-frame {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: heroFloat 5s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+@keyframes heroFloat {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-16px); }
+}
+
+/* Wheat stalk ornament — top-right corner */
+.hero-profile-wheat {
+    position: absolute;
+    top: -30px;
+    right: -20px;
+    width: 60px;
+    height: 200px;
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0.85;
+}
+
+/* Outer spinning dashed ring */
+.hp-ring-outer {
+    position: absolute;
+    width: 290px;
+    height: 290px;
+    border-radius: 50%;
+    border: 2px dashed rgba(212,168,75,0.4);
+    animation: spin 22s linear infinite;
+    pointer-events: none;
+}
+
+/* Inner solid ring */
+.hp-ring-inner {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.12);
+    pointer-events: none;
+}
+
+/* Soft glow behind the image */
+.hp-glow {
+    position: absolute;
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212,168,75,0.18) 0%, transparent 70%);
+    filter: blur(12px);
+    pointer-events: none;
+}
+
+/* The actual photo */
+.hero-photo {
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    border: 5px solid rgba(255,255,255,0.18);
+    box-shadow: 0 10px 48px rgba(0,0,0,0.38), 0 0 0 1px rgba(212,168,75,0.25);
+    position: relative;
+    z-index: 2;
+    display: block;
+}
+
+/* Fallback initials when no photo */
+.hero-photo-init {
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5rem;
+    font-weight: 800;
+    color: var(--accent);
+    border: 5px solid rgba(255,255,255,0.18);
+    box-shadow: 0 10px 48px rgba(0,0,0,0.38);
+    position: relative;
+    z-index: 2;
+}
+
+/* Small wheat badge floating at bottom-left of image */
+.hp-badge {
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    z-index: 4;
+    box-shadow: 0 4px 14px rgba(212,168,75,0.5);
+    animation: badgePulse 3s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 4px 14px rgba(212,168,75,0.5); }
+    50%       { transform: scale(1.1); box-shadow: 0 6px 22px rgba(212,168,75,0.7); }
 }
 
 /* ======================================================
@@ -1536,6 +1659,35 @@ img { max-width: 100%; display: block; }
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ======================================================
+   TEXT JUSTIFICATION
+====================================================== */
+.about-bio,
+.tl-desc,
+.contact-info-block > p,
+.exp-card p,
+.award-card p,
+.cert-card p,
+.ref-inst {
+    text-align: justify;
+}
+
+/* ======================================================
+   BACK-TO-TOP — dark background variant
+   Applied when button overlaps dark sections
+====================================================== */
+.back-top.on-dark {
+    background: rgba(245,240,232,0.92);
+    color: var(--green-dark);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+}
+
+.back-top.on-dark:hover {
+    background: var(--accent);
+    color: var(--dark);
+    box-shadow: 0 6px 22px rgba(212,168,75,0.5);
 }
 
 /* ======================================================

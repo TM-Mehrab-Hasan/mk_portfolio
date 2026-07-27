@@ -23,8 +23,23 @@ function onScroll() {
     mainNav.classList.toggle('scrolled', window.scrollY > 60);
 
     /* Back-to-top visibility */
-    document.getElementById('backTop')
-        .classList.toggle('show', window.scrollY > 400);
+    const btn = document.getElementById('backTop');
+    btn.classList.toggle('show', window.scrollY > 400);
+
+    /* Back-to-top color: invert on dark sections */
+    if (btn.classList.contains('show')) {
+        /* Temporarily hide the button so elementFromPoint sees what's beneath it */
+        btn.style.visibility = 'hidden';
+        const underEl = document.elementFromPoint(
+            window.innerWidth  - 52,   /* button right: 28 + half width ~24 */
+            window.innerHeight - 52    /* button bottom: 28 + half height ~24 */
+        );
+        btn.style.visibility = '';
+        const onDark = underEl
+            ? !!underEl.closest('#hero, #certifications, .site-footer')
+            : false;
+        btn.classList.toggle('on-dark', onDark);
+    }
 
     /* Active nav link */
     const sections = document.querySelectorAll('section[id]');
